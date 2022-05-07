@@ -3,12 +3,13 @@ import type {Reducer} from "react";
 // Constants
 import {GET_BILLS} from "./bills.constant";
 
-interface BillsActionInterface {
-    payload?: any
-    type: string
+export interface ActionInterface<P = any> {
+    type: string;
+    payload?: P;
 }
 
-interface BillInterface {
+
+export interface BillInterface {
     id: number
     date: string
     amount: number
@@ -17,7 +18,7 @@ interface BillInterface {
     reference_number: string
 }
 
-interface BillStateInterface {
+export interface BillStateInterface {
     bills: Array<BillInterface>
     isLoading: boolean
 }
@@ -28,7 +29,7 @@ const initialState: BillStateInterface = {
     isLoading: false
 }
 
-export const billsReducer: Reducer<BillStateInterface, BillsActionInterface> = (state = initialState, action) => {
+export const billsReducer: Reducer<BillStateInterface, ActionInterface> = (state = initialState, action) => {
     switch (action.type) {
         case GET_BILLS:
             return {...state, bills: action.payload}
