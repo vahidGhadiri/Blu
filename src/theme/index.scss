@@ -1,0 +1,8 @@
+//remove default padding and margin for all the browser
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
