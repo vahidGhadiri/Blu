@@ -2,7 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import {Provider} from "react-redux";
 // Local Components
-import {App} from "./app";
+import {App} from "./App";
 //Store
 import {store} from "./store";
 
