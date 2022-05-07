@@ -5,6 +5,8 @@ import {Provider} from "react-redux";
 import {App} from "./App";
 //Store
 import {store} from "./store";
+// Global Styles
+import "./theme/index.scss"
 
 const htmlElement = document.getElementById("root") as HTMLHtmlElement
 

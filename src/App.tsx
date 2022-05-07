@@ -1,9 +1,11 @@
 import React from "react";
+// Components
+import {Header} from "./components";
 
 export const App: React.FC = () => {
     return (
-        <div>
-            Initial App
-        </div>
+        <>
+            <Header title="صورتحساب"/>
+        </>
     )
 }
