@@ -1,12 +1,19 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import {Provider} from "react-redux";
 // Local Components
 import {App} from "./app";
+//Store
+import {store} from "./store";
 
 const htmlElement = document.getElementById("root") as HTMLHtmlElement
 
 const root = ReactDOM.createRoot(htmlElement)
 
-console.log(process.env.REACT_APP_BASE_URL)
+const compactApp = (
+    <Provider store={store}>
+        <App/>
+    </Provider>
+)
 
-root.render(<App/>)
+root.render(compactApp)
