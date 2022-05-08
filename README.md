@@ -1,4 +1,4 @@
-## Project name: Blu-task
+## Blu-task
 
 This project is the third technical stage of my interview with Blu,
 it described as a list of a person's transactions.
