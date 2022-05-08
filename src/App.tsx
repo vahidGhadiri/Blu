@@ -1,17 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 // Components
-import {Header, Modal} from "./components";
+import {Header} from "./components";
+// Pages
+import {Bills} from "./pages";
 
 export const App: React.FC = () => {
-    const [modal, setModal] = useState(false);
     return (
         <>
             <Header title="صورتحساب"/>
-            <button onClick={() => setModal(true)}>Check the modal</button>
-
-            <Modal title="HEADER" show={modal} close={() => setModal(false)}>
-                <div>...</div>
-            </Modal>
+            <Bills/>
         </>
     )
 }

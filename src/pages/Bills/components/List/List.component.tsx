@@ -1,6 +1,6 @@
 import React from "react"
 // Types
-import type {BillInterface} from "../../store/bills/bills.reducer";
+import type {BillInterface} from "../../../../store/bills/bills.reducer";
 
 interface PropsInterface {
     data: Array<BillInterface>
