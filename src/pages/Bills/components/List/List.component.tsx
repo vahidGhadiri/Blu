@@ -54,7 +54,7 @@ const List: React.FC<PropsInterface> = (props) => {
     })
 
     return (
-        <InfiniteScroll onNext={() => callNextPageData()} height={"100vh"}>
+        <InfiniteScroll onNext={() => callNextPageData()} height="90vh">
             <StyledList>
                 {props.data.map((item, index) => (
                     <StyledBill key={index} onClick={() => openModal(item)}>
