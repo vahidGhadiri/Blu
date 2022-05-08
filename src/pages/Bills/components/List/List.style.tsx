@@ -22,7 +22,7 @@ export const StyledBill = styled.div`
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 1rem;
   border-bottom: 1px solid ${COLORS.BORDER};
 `
 
@@ -46,6 +46,11 @@ export const FlexWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: end;
+
+  & > p {
+    font-size: 14px;
+    margin-bottom: .5rem;
+  }
 `
 
 export const StyledDate = styled.div`
@@ -53,6 +58,16 @@ export const StyledDate = styled.div`
   color: ${COLORS.LIGHT_TEXT}
 `
 
+export const StyledAmount = styled.div<PropsInterface>`
+  font-weight: 500;
+  font-size: 14px;
+
+  & > span {
+    color: ${(props: any) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
+    margin: 0 3px;
+    display: inline-block;
+  }
+`
 
 export const StyledBackIcon = styled.div
     ``
