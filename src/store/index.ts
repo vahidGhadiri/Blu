@@ -1,6 +1,9 @@
-import {RootReducer} from "./index.reducer";
+// Utils
 import {applyMiddleware, compose, createStore} from "redux";
 import createSagaMiddleware from "redux-saga";
+// Reducers
+import {RootReducer} from "./index.reducer";
+// Sagas
 import {RootSaga} from "./index.saga";
 
 /**
