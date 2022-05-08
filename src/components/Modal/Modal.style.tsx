@@ -33,7 +33,7 @@ const fadeAnimation = keyframes`
 
 export const StyledWrapper = styled.div`
   width: 90%;
-  height: 55%;
+  height: 40%;
   border-radius: 1rem;
   background-color: ${COLORS.WHITE};
   transition: all .5s ease-in-out;

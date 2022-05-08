@@ -3,7 +3,7 @@ import {COLORS} from "../../../../theme/__variables";
 
 export const StyledDetail = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100%;
@@ -53,7 +53,7 @@ export const StyledContent = styled.div`
   }
 `
 
-export const StyledValue = styled.div`
+export const StyledValue = styled.span`
   font-size: 13px;
   color: ${COLORS.SIMPLE_BLACK}
 `
