@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 // Types
 import type {BillInterface} from "../../../../store/bills/bills.reducer";
 // Styles
@@ -34,6 +34,17 @@ const List: React.FC<PropsInterface> = (props) => {
         setModal(!modal)
         setSelectedBill(item)
     }
+
+    useEffect(() => {
+        document.addEventListener('keypress', (e) => {
+            if (e.keyCode === 8) setModal(!modal);
+        })
+        return () => {
+            document.removeEventListener('keypress', (e) => {
+                if (e.keyCode === 8) setModal(!modal);
+            })
+        }
+    })
 
     return (
         <StyledList>
