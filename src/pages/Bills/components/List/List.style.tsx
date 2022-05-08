@@ -58,9 +58,11 @@ export const StyledDate = styled.div`
   color: ${COLORS.LIGHT_TEXT}
 `
 
+
 export const StyledAmount = styled.div<PropsInterface>`
   font-weight: 500;
   font-size: 14px;
+
 
   & > span {
     color: ${(props: any) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
