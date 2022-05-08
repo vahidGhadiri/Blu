@@ -13,7 +13,7 @@ const Bills = () => {
     const billsState = useSelector((state: any) => state.Bills.bills)
 
     useEffect(() => {
-        dispatch(BillActions.getBills(1, 10))
+        dispatch(BillActions.getBills())
     }, [])
 
     return (

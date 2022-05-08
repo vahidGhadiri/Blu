@@ -20,6 +20,8 @@ import {convertGregorianToPersian, convertNumberToCashFormat} from "../../../../
 // Local Components
 import {InfiniteScroll, Modal} from "../../../../components";
 import {Detail} from "../Detail/Detail.component";
+import {useDispatch} from "react-redux";
+import BillActions from "../../../../store/bills/bills.action";
 
 interface PropsInterface {
     data: Array<BillInterface>
@@ -29,10 +31,15 @@ const List: React.FC<PropsInterface> = (props) => {
     const [modal, setModal] = useState(false);
     const [selectedBill, setSelectedBill] = useState<BillInterface>({} as BillInterface)
     const {amount, date, tracking_code, reference_number} = selectedBill
+    const dispatch = useDispatch()
 
     const openModal = (item: BillInterface) => {
         setModal(!modal)
         setSelectedBill(item)
+    }
+
+    const callNextPageData = () => {
+        dispatch(BillActions.getBills())
     }
 
     useEffect(() => {
@@ -47,7 +54,7 @@ const List: React.FC<PropsInterface> = (props) => {
     })
 
     return (
-        <InfiniteScroll onNext={() => console.log("vahid")} height={"100vh"}>
+        <InfiniteScroll onNext={() => callNextPageData()} height={"100vh"}>
             <StyledList>
                 {props.data.map((item, index) => (
                     <StyledBill key={index} onClick={() => openModal(item)}>
