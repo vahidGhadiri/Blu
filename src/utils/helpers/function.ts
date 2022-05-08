@@ -1,6 +1,6 @@
 export function convertGregorianToPersian(date: string) {
     const day = new Date(date).getDay()
-    const persianDay = ['دوشنبه', 'سه شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه', 'یکشنبه'][day - 1]
+    const persianDay = ['دوشنبه', 'سه شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه', 'یکشنبه'][day]
     const persianDate = new Date(date).toLocaleDateString('fa-IR')
     return `${persianDay} ${persianDate}`
 }
