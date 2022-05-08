@@ -27,7 +27,7 @@ export function convertEnglishNumberToPersian(value: number): string {
 }
 
 
-export function convertNumberToCashFormat(value: number) {
-    return new Intl.NumberFormat('fa-IR').format(value)
+export function convertNumberToCashFormat(value: number | undefined) {
+    return value && new Intl.NumberFormat('fa-IR').format(value)
 }
 
