@@ -23,7 +23,7 @@ const Bills = () => {
                     <p>گردش حساب</p>
                     <List data={billsState}/>
                 </>
-            ) : (<Spinner/>)}
+            ) : (<Spinner hasOverlay/>)}
         </Container>
     )
 }

@@ -3,9 +3,13 @@ import React from "react";
 import {Container, StyledSpinner} from "./Spinner.style";
 
 
-const Spinner: React.FC = () => {
+interface PropsInterface {
+    hasOverlay: boolean
+}
+
+const Spinner: React.FC<PropsInterface> = (props) => {
     return (
-        <Container>
+        <Container hasOverlay={props.hasOverlay}>
             <StyledSpinner/>
         </Container>
     )

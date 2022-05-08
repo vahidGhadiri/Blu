@@ -1,5 +1,9 @@
 import styled, {keyframes} from 'styled-components'
 
+interface PropsInterface {
+    hasOverlay: boolean
+}
+
 const SpinAnimation = keyframes`
   0% {
     transform: rotate(0deg);
@@ -8,12 +12,12 @@ const SpinAnimation = keyframes`
     transform: rotate(360deg);
   }
 `
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const Container = styled.div<PropsInterface>`
+  height: ${(props: any) => props.hasOverlay && "100vh"};
+  display: grid;
+  place-content: center;
+  margin: 0 auto;
+  padding: 1rem;
 `
 
 export const StyledSpinner = styled.div`
