@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import BillActions from "../../store/bills/bills.action";
 // Style
 import {Container} from "./Bills.style";
+import {Spinner} from "../../components";
 
 const Bills = () => {
     const dispatch = useDispatch()
@@ -17,8 +18,12 @@ const Bills = () => {
 
     return (
         <Container>
-            <p>گردش حساب</p>
-            <List data={billsState}/>
+            {billsState.length !== 0 ? (
+                <>
+                    <p>گردش حساب</p>
+                    <List data={billsState}/>
+                </>
+            ) : (<Spinner/>)}
         </Container>
     )
 }
