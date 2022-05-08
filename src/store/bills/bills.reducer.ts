@@ -3,11 +3,6 @@ import type {Reducer} from "react";
 // Constants
 import {SET_BILLS, SET_LOADING, SET_PAGINATION} from "./bills.constant";
 
-export interface ActionInterface<P = any> {
-    type: string;
-    payload?: P;
-}
-
 
 export interface BillInterface {
     id: number
@@ -29,6 +24,11 @@ const initialState: BillStateInterface = {
     bills: [],
     isLoading: false,
     page: 1
+}
+
+export interface ActionInterface<P = any> {
+    type: string;
+    payload?: P;
 }
 
 export const billsReducer: Reducer<BillStateInterface, ActionInterface> = (state = initialState, action) => {
