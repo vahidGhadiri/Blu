@@ -6,3 +6,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-family: Vazir, sans-serif;
+}
+
+#modal {
+  position: relative;
+  z-index: 100;
+}
