@@ -8,6 +8,7 @@ export const StyledDetail = styled.div`
   flex-direction: column;
   height: 100%;
   padding: 2rem 1rem;
+  overflow: scroll;
 `
 export const StyledHeader = styled.div`
   display: flex;
