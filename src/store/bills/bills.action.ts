@@ -1,15 +1,14 @@
 // Constants
-import {GET_BILLS, SAGA_BILLS, SET_LOADING} from "./bills.constant";
+import {SAGA_BILLS, SET_BILLS, SET_LOADING, SET_PAGINATION} from "./bills.constant";
 import {BillInterface} from "./bills.reducer";
 
 class Actions {
     /**
      * This action will fire Bills Saga
      */
-    public getBills(page: number, limit: number) {
+    public getBills() {
         return {
-            type: SAGA_BILLS,
-            payload: {page, limit}
+            type: SAGA_BILLS
         }
     }
 
@@ -19,7 +18,7 @@ class Actions {
      */
     public setBills(data: BillInterface) {
         return {
-            type: GET_BILLS,
+            type: SET_BILLS,
             payload: data
         }
     }
@@ -34,6 +33,17 @@ class Actions {
             payload: isLoading
         }
     }
+
+    /**
+     * This Action set data from next page of api
+     */
+    public setPagination(page: number) {
+        return {
+            type: SET_PAGINATION,
+            payload: page
+        }
+    }
+
 }
 
 const BillActions = new Actions()

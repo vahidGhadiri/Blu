@@ -36,10 +36,9 @@ export const StyledWrapper = styled.div`
   height: 40%;
   border-radius: 1rem;
   background-color: ${COLORS.WHITE};
-  transition: all 1s ease-in-out;
+  transition: all .5s ease-in-out;
 
   animation-name: ${fadeAnimation};
   animation-duration: 1s;
 `
 
-export const StyledTitle = styled.div``

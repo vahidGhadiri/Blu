@@ -1,7 +1,7 @@
 // Types
 import type {Reducer} from "react";
 // Constants
-import {GET_BILLS} from "./bills.constant";
+import {SET_BILLS, SET_LOADING, SET_PAGINATION} from "./bills.constant";
 
 export interface ActionInterface<P = any> {
     type: string;
@@ -21,18 +21,24 @@ export interface BillInterface {
 export interface BillStateInterface {
     bills: Array<BillInterface>
     isLoading: boolean
+    page: number
 }
 
 
 const initialState: BillStateInterface = {
     bills: [],
-    isLoading: false
+    isLoading: false,
+    page: 1
 }
 
 export const billsReducer: Reducer<BillStateInterface, ActionInterface> = (state = initialState, action) => {
     switch (action.type) {
-        case GET_BILLS:
+        case SET_BILLS:
             return {...state, bills: action.payload}
+        case SET_LOADING:
+            return {...state, isLoading: action.payload}
+        case SET_PAGINATION :
+            return {...state, page: action.payload}
         default:
             return state
     }

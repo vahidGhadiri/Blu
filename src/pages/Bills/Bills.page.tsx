@@ -1,16 +1,30 @@
-import React, {useState} from "react"
+import React, {useEffect} from "react"
 // Local Components
-import {Modal} from "../../components";
+import List from "./components/List/List.component";
+// Utils
+import {useDispatch, useSelector} from "react-redux";
+import BillActions from "../../store/bills/bills.action";
+// Style
+import {Container} from "./Bills.style";
+import {Spinner} from "../../components";
 
 const Bills = () => {
-    const [modal, setModal] = useState(false);
+    const dispatch = useDispatch()
+    const billsState = useSelector((state: any) => state.Bills.bills)
+
+    useEffect(() => {
+        dispatch(BillActions.getBills())
+    }, [])
 
     return (
-        <div>
-            <Modal title="HEADER" show={modal} close={() => setModal(false)}>
-                <div>...</div>
-            </Modal>
-        </div>
+        <Container>
+            {billsState.length !== 0 ? (
+                <>
+                    <p>گردش حساب</p>
+                    <List data={billsState}/>
+                </>
+            ) : (<Spinner hasOverlay/>)}
+        </Container>
     )
 }
 
