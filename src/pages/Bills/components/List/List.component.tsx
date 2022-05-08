@@ -18,7 +18,7 @@ import {MdKeyboardArrowLeft} from "react-icons/md";
 // Helpers
 import {convertGregorianToPersian, convertNumberToCashFormat} from "../../../../utils/helpers/function";
 // Local Components
-import {Modal} from "../../../../components";
+import {InfiniteScroll, Modal} from "../../../../components";
 import {Detail} from "../Detail/Detail.component";
 
 interface PropsInterface {
@@ -47,34 +47,38 @@ const List: React.FC<PropsInterface> = (props) => {
     })
 
     return (
-        <StyledList>
-            {props.data.map((item, index) => (
-                <StyledBill key={index} onClick={() => openModal(item)}>
-                    <IsWithdrawal isWithdrawal={item.isWithdrawal} span={1}>
-                        {item.isWithdrawal ? <ImArrowDownRight/> : <ImArrowUpLeft/>}
-                    </IsWithdrawal>
-                    <StyledContent>
-                        <StyledAmount isWithdrawal={item.isWithdrawal}>
-                            <span>ریال</span>
-                            <span>
+        <InfiniteScroll onNext={() => console.log("vahid")} height={"100vh"}>
+            <StyledList>
+                {props.data.map((item, index) => (
+                    <StyledBill key={index} onClick={() => openModal(item)}>
+                        <IsWithdrawal isWithdrawal={item.isWithdrawal} span={1}>
+                            {item.isWithdrawal ? <ImArrowDownRight/> : <ImArrowUpLeft/>}
+                        </IsWithdrawal>
+                        <StyledContent>
+                            <StyledAmount isWithdrawal={item.isWithdrawal}>
+                                <span>ریال</span>
+                                <span>
                                 {item.isWithdrawal ? "-" : "+"}
-                                {convertNumberToCashFormat(item.amount)}
+                                    {convertNumberToCashFormat(item.amount)}
                             </span>
-                        </StyledAmount>
-                        <FlexWrapper>
-                            <p>{item.isWithdrawal ? "برداشت" : "واریز"}</p>
-                            <StyledDate>{convertGregorianToPersian(item.date)}</StyledDate>
-                        </FlexWrapper>
-                    </StyledContent>
-                    <StyledBackIcon>
-                        <MdKeyboardArrowLeft/>
-                    </StyledBackIcon>
-                </StyledBill>
-            ))}
-            <Modal show={modal} close={() => setModal(false)}>
-                <Detail amount={amount} date={date} trackingCode={tracking_code} referenceNumber={reference_number}/>
-            </Modal>
-        </StyledList>
+                            </StyledAmount>
+                            <FlexWrapper>
+                                <p>{item.isWithdrawal ? "برداشت" : "واریز"}</p>
+                                <StyledDate>{convertGregorianToPersian(item.date)}</StyledDate>
+                            </FlexWrapper>
+                        </StyledContent>
+                        <StyledBackIcon>
+                            <MdKeyboardArrowLeft/>
+                        </StyledBackIcon>
+                    </StyledBill>
+                ))}
+                <Modal show={modal} close={() => setModal(false)}>
+                    <Detail amount={amount} date={date} trackingCode={tracking_code}
+                            referenceNumber={reference_number}/>
+                </Modal>
+            </StyledList>
+
+        </InfiniteScroll>
     )
 }
 
