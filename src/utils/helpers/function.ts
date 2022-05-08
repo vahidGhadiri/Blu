@@ -28,6 +28,6 @@ export function convertEnglishNumberToPersian(value: number): string {
 
 
 export function convertNumberToCashFormat(value: number) {
-    return new Intl.NumberFormat('ar-EG').format(value)
+    return new Intl.NumberFormat('fa-IR').format(value)
 }
 
