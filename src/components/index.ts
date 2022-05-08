@@ -6,5 +6,4 @@ import Spinner from "./Spinner/Spinner.component";
 
 export {
     Header, InfiniteScroll, Modal, Maybe, Spinner
-
 }

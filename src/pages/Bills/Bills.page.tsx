@@ -1,12 +1,13 @@
 import React, {useEffect} from "react"
 // Local Components
 import List from "./components/List/List.component";
+import {Spinner} from "../../components";
 // Utils
 import {useDispatch, useSelector} from "react-redux";
 import BillActions from "../../store/bills/bills.action";
 // Style
 import {Container} from "./Bills.style";
-import {Spinner} from "../../components";
+
 
 const Bills = () => {
     const dispatch = useDispatch()

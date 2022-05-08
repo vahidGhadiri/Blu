@@ -2,6 +2,7 @@ import React, {SyntheticEvent} from 'react'
 import ReactDOM from 'react-dom'
 // Styles
 import {StyledModal, StyledWrapper} from "./Modal.style";
+// Local Components
 import {Maybe} from "../index";
 
 interface PropsInterface {
