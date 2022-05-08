@@ -1,11 +1,14 @@
 import React, {useRef, useState} from "react"
-import {Maybe, Spinner} from "../index";
+import {Spinner} from "../index";
+// Styles
+import {StyledEndMessage} from "./InfiniteScroll.style";
 
 interface PropsInterface {
     children: React.ReactNode
     onNext: () => void
-    endMessage?: string,
-    height: string
+    endMessage: string,
+    height: string,
+    isEnd: boolean
 }
 
 
@@ -18,7 +21,7 @@ const InfiniteScroll: React.FC<PropsInterface> = (props) => {
             const {scrollTop, clientHeight, scrollHeight,} = ref.current;
             if (scrollTop + clientHeight === scrollHeight) {
                 setIsSpinnerVisible(!isSpinnerVisible)
-                return props.onNext()
+                return !props.isEnd && props.onNext()
             }
         }
     };
@@ -28,9 +31,7 @@ const InfiniteScroll: React.FC<PropsInterface> = (props) => {
              ref={ref}
              onScroll={onEnd}>
             {props.children}
-            <Maybe condition={isSpinnerVisible}>
-                <Spinner hasOverlay={false}/>
-            </Maybe>
+            {props.isEnd ? <StyledEndMessage>{props.endMessage}</StyledEndMessage> : <Spinner hasOverlay={false}/>}
         </div>
     )
 }
