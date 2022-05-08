@@ -1,4 +1,8 @@
 import React, {useEffect, useState} from "react"
+// Hooks
+import {useDispatch, useSelector} from "react-redux";
+// Actions
+import BillActions from "../../../../store/bills/bills.action";
 // Types
 import type {BillInterface} from "../../../../store/bills/bills.reducer";
 // Styles
@@ -20,8 +24,6 @@ import {convertGregorianToPersian, convertNumberToCashFormat} from "../../../../
 // Local Components
 import {InfiniteScroll, Modal} from "../../../../components";
 import {Detail} from "../Detail/Detail.component";
-import {useDispatch, useSelector} from "react-redux";
-import BillActions from "../../../../store/bills/bills.action";
 
 interface PropsInterface {
     data: Array<BillInterface>

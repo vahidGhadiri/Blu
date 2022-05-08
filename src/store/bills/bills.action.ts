@@ -35,7 +35,8 @@ class Actions {
     }
 
     /**
-     * This Action set data from next page of api
+     * This Action will handle pagination
+     * @param page
      */
     public setPagination(page: number) {
         return {

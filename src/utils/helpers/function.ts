@@ -1,3 +1,8 @@
+/**
+ * This method will convert Georgian calendar to persian
+ * @param date
+ * @return persianDate & persianDay
+ */
 export function convertGregorianToPersian(date: string) {
     const day = new Date(date).getDay()
     const persianDay = ['دوشنبه', 'سه شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه', 'یکشنبه'][day]
@@ -6,6 +11,11 @@ export function convertGregorianToPersian(date: string) {
 }
 
 
+/**
+ * This method will change number format, english to persian
+ * @param value
+ * @return persianNumber
+ */
 export function convertEnglishNumberToPersian(value: number): string {
     let result = ""
     let persianNumber = {
@@ -27,6 +37,11 @@ export function convertEnglishNumberToPersian(value: number): string {
 }
 
 
+/**
+ * This method will convert a simple number to a readable persian cash format
+ * @param value
+ * @return cash
+ */
 export function convertNumberToCashFormat(value: number | undefined) {
     return value && new Intl.NumberFormat('fa-IR').format(value)
 }
