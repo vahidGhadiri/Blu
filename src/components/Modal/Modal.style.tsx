@@ -2,11 +2,8 @@ import styled, {keyframes} from "styled-components"
 // Root variables
 import {COLORS} from "../../theme/__variables";
 
-interface PropsInterface {
-    isModalOpen: boolean
-}
 
-export const StyledModal = styled.div<PropsInterface>`
+export const StyledModal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   height: 100%;

@@ -3,8 +3,7 @@ import styled from "styled-components";
 import {COLORS} from "../../../../theme/__variables";
 
 interface PropsInterface {
-    span: number
-    isWithdrawal?: boolean
+    isWithdrawal: boolean
 }
 
 export const StyledList = styled.div`
@@ -29,7 +28,7 @@ export const StyledBill = styled.div`
 
 export const IsWithdrawal = styled.div<PropsInterface>`
   display: flex;
-  color: ${(props: any) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
+  color: ${(props) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
   font-size: 12px;
 `
 
@@ -65,7 +64,7 @@ export const StyledAmount = styled.div<PropsInterface>`
 
 
   & > span {
-    color: ${(props: any) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
+    color: ${(props) => props.isWithdrawal ? COLORS.DECREMENT_ARROW : COLORS.INCREMENT_ARROW};
     margin: 0 3px;
     display: inline-block;
   }

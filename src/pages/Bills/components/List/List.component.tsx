@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 // Actions
 import BillActions from "../../../../store/bills/bills.action";
 // Types
-import type {BillInterface} from "../../../../store/bills/bills.reducer";
+import type {BillInterface, BillStateInterface} from "../../../../store/bills/bills.reducer";
+import type {StateNetwork} from "../../../../types/types";
 // Styles
 import {
     FlexWrapper,
@@ -34,7 +35,7 @@ const List: React.FC<PropsInterface> = (props) => {
     const [selectedBill, setSelectedBill] = useState<BillInterface>({} as BillInterface)
     const {amount, date, tracking_code, reference_number} = selectedBill
     const dispatch = useDispatch()
-    const billsState = useSelector((state: any) => state.Bills.bills)
+    const billsState = useSelector<StateNetwork, BillStateInterface>((state) => state.bills)
 
     const openModal = (item: BillInterface) => {
         setModal(!modal)
@@ -58,12 +59,12 @@ const List: React.FC<PropsInterface> = (props) => {
 
     return (
         <InfiniteScroll onNext={() => callNextPageData()}
-                        height="90vh" isEnd={billsState.length >= 50}
+                        height="90vh" isEnd={billsState.bills.length >= 50}
                         endMessage="پایان لیست">
             <StyledList>
                 {props.data.map((item, index) => (
                     <StyledBill key={index} onClick={() => openModal(item)}>
-                        <IsWithdrawal isWithdrawal={item.isWithdrawal} span={1}>
+                        <IsWithdrawal isWithdrawal={item.isWithdrawal}>
                             {item.isWithdrawal ? <ImArrowDownRight/> : <ImArrowUpLeft/>}
                         </IsWithdrawal>
                         <StyledContent>

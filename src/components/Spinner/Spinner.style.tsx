@@ -13,7 +13,7 @@ const SpinAnimation = keyframes`
   }
 `
 export const Container = styled.div<PropsInterface>`
-  height: ${(props: any) => props.hasOverlay && "100vh"};
+  height: ${(props) => props.hasOverlay && "100vh"};
   display: grid;
   place-content: center;
   margin: 0 auto;

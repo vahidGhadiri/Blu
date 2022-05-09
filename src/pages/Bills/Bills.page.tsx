@@ -7,11 +7,14 @@ import {useDispatch, useSelector} from "react-redux";
 import BillActions from "../../store/bills/bills.action";
 // Style
 import {Container} from "./Bills.style";
+// Types
+import type {StateNetwork} from "../../types/types";
+import type {BillStateInterface} from "../../store/bills/bills.reducer";
 
 
 const Bills = () => {
     const dispatch = useDispatch()
-    const billsState = useSelector((state: any) => state.Bills.bills)
+    const billsState = useSelector<StateNetwork, BillStateInterface>((state) => state.bills)
 
     useEffect(() => {
         dispatch(BillActions.getBills())
@@ -19,10 +22,10 @@ const Bills = () => {
 
     return (
         <Container>
-            {billsState.length !== 0 ? (
+            {billsState.bills.length !== 0 ? (
                 <>
                     <p>گردش حساب</p>
-                    <List data={billsState}/>
+                    <List data={billsState.bills}/>
                 </>
             ) : (<Spinner hasOverlay/>)}
         </Container>
