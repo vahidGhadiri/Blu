@@ -8,5 +8,5 @@ import {billsReducer} from "./bills/bills.reducer";
  * Combine all reducers together to control by redux reducers observer
  */
 export const RootReducer = combineReducers({
-    Bills: billsReducer
+    bills: billsReducer
 })

@@ -16,7 +16,7 @@ import {SAGA_BILLS} from "./bills.constant";
 export function* getBills(): any {
     yield put(BillActions.setLoading(true))
     const billsState = yield select()
-    const {page} = billsState.Bills
+    const {page} = billsState.bills
     try {
         yield put(BillActions.setPagination(page + 1))
         const response = yield call(() => BillService.getBills(page, JSON.stringify(page * 10)))

@@ -1,5 +1,6 @@
 // Types
 import type {Reducer} from "react";
+import type {ActionInterface} from "../../types/types";
 // Constants
 import {SET_BILLS, SET_LOADING, SET_PAGINATION} from "./bills.constant";
 
@@ -26,10 +27,7 @@ const initialState: BillStateInterface = {
     page: 1
 }
 
-export interface ActionInterface<P = any> {
-    type: string;
-    payload?: P;
-}
+
 
 export const billsReducer: Reducer<BillStateInterface, ActionInterface> = (state = initialState, action) => {
     switch (action.type) {
